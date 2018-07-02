@@ -48,7 +48,7 @@ public class Part1 {
      */
     public static Boolean isEquals(String object1, String object2) {
 
-        return (object1.equals(null) && object2.equals(null)) ? true : (object1.equals(null) && !object2.equals(null))
-                ? false : (object1.equals(object2)) ? true : false;
+        return (object1 == null && object2 == null) ? true : (object1 == null && object2 != null)
+                ? false : (object1.equalsIgnoreCase(object2)) ? true : false;
     }
 }
