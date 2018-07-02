@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Shelter<T extends Ageable> {
 
-    List<T> shelter;
+    ArrayList<T> shelter;
 
     public Shelter() {
         shelter = new ArrayList<>();
@@ -20,22 +20,13 @@ public class Shelter<T extends Ageable> {
     }
 
     public T removeFirst() {
-        T first = null;
-        for (int i = 0; i < shelter.size(); i++) {
-            if (shelter.isEmpty()) {
-                first = null;
-            } else {
-                first = shelter.get(0);
-                shelter.remove(first);
-            }
-        }
-        return first;
+        return size() == 0 ? null : shelter.remove(0);
     }
 
     public T getOldest() {
         T oldest = shelter.get(0);
         for (int i = 0; i < shelter.size(); i++) {
-            if (shelter.get(i).getYearOfBirth() > oldest.getYearOfBirth()) {
+            if (shelter.get(i).getYearOfBirth() < oldest.getYearOfBirth()) {
                 oldest = shelter.get(i);
             }
         }
